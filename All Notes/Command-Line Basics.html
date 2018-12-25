@@ -1,0 +1,151 @@
+
+    <!DOCTYPE html>
+    <html>
+    <head>
+      <meta charset="utf-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <!-- common.css -->
+      <style>* {-webkit-tap-highlight-color: rgba(0,0,0,0);}html {-webkit-text-size-adjust: none;}body {font-family: -apple-system, Helvetica, Arial, sans-serif;margin: 0;padding: 20px;color: #333;word-wrap: break-word;}h1, h2, h3, h4, h5, h6 {line-height: 1.1;}img {max-width: 100% !important;height: auto;}blockquote {margin: 0;padding: 0 15px;color: #777;border-left: 4px solid #ddd;}hr {background-color: #ddd;border: 0;height: 1px;margin: 15px 0;}code {font-family: Menlo, Consolas, 'Ubuntu Mono', Monaco, 'source-code-pro', monospace;line-height: 1.4;margin: 0;padding: 0.2em 0;font-size: 90%;background-color: rgba(0,0,0,0.04);border-radius: 3px;}pre > code {margin: 0;padding: 0;font-size: 100%;word-break: normal;background: transparent;border: 0;}ol {list-style-type: decimal;}ol ol, ul ol {list-style-type: lower-latin;}ol ol ol, ul ol ol, ul ul ol, ol ul ol {list-style-type: lower-roman;}table {border-spacing: 0;border-collapse: collapse;margin-top: 0;margin-bottom: 16px;}table th {font-weight: bold;}table th, table td {padding: 6px 13px;border: 1px solid #ddd;}table tr {border-top: 1px solid #ccc;}table tr:nth-child(even) {background-color: #f8f8f8;}input[type="checkbox"] {cursor: default;margin-right: 0.5em;font-size: 13px;}.task-list-item {list-style-type: none;}.task-list-item+.task-list-item {margin-top: 3px;}.task-list-item input {float: left;margin: 0.3em 1em 0.25em -1.6em;vertical-align: middle;}#tag-field {margin: 8px 2px 10px;}#tag-field .tag {display: inline-block;background: #cadff3;border-radius: 4px;padding: 1px 8px;color: black;font-size: 12px;margin-right: 10px;line-height: 1.4;}</style>
+      <!-- ace-static.css -->
+      <style>.ace_static_highlight {white-space: pre-wrap;}.ace_static_highlight .ace_gutter {width: 2em;text-align: right;padding: 0 3px 0 0;margin-right: 3px;}.ace_static_highlight.ace_show_gutter > .ace_line {padding-left: 2.6em;}.ace_static_highlight .ace_line {position: relative;}.ace_static_highlight .ace_gutter-cell {-moz-user-select: -moz-none;-khtml-user-select: none;-webkit-user-select: none;user-select: none;top: 0;bottom: 0;left: 0;position: absolute;}.ace_static_highlight .ace_gutter-cell:before {content: counter(ace_line, decimal);counter-increment: ace_line;}.ace_static_highlight {counter-reset: ace_line;}</style>
+      <style>.ace-chrome .ace_gutter {background: #ebebeb;color: #333;overflow : hidden;}.ace-chrome .ace_print-margin {width: 1px;background: #e8e8e8;}.ace-chrome {background-color: #FFFFFF;color: black;}.ace-chrome .ace_cursor {color: black;}.ace-chrome .ace_invisible {color: rgb(191, 191, 191);}.ace-chrome .ace_constant.ace_buildin {color: rgb(88, 72, 246);}.ace-chrome .ace_constant.ace_language {color: rgb(88, 92, 246);}.ace-chrome .ace_constant.ace_library {color: rgb(6, 150, 14);}.ace-chrome .ace_invalid {background-color: rgb(153, 0, 0);color: white;}.ace-chrome .ace_fold {}.ace-chrome .ace_support.ace_function {color: rgb(60, 76, 114);}.ace-chrome .ace_support.ace_constant {color: rgb(6, 150, 14);}.ace-chrome .ace_support.ace_type,.ace-chrome .ace_support.ace_class.ace-chrome .ace_support.ace_other {color: rgb(109, 121, 222);}.ace-chrome .ace_variable.ace_parameter {font-style:italic;color:#FD971F;}.ace-chrome .ace_keyword.ace_operator {color: rgb(104, 118, 135);}.ace-chrome .ace_comment {color: #236e24;}.ace-chrome .ace_comment.ace_doc {color: #236e24;}.ace-chrome .ace_comment.ace_doc.ace_tag {color: #236e24;}.ace-chrome .ace_constant.ace_numeric {color: rgb(0, 0, 205);}.ace-chrome .ace_variable {color: rgb(49, 132, 149);}.ace-chrome .ace_xml-pe {color: rgb(104, 104, 91);}.ace-chrome .ace_entity.ace_name.ace_function {color: #0000A2;}.ace-chrome .ace_heading {color: rgb(12, 7, 255);}.ace-chrome .ace_list {color:rgb(185, 6, 144);}.ace-chrome .ace_marker-layer .ace_selection {background: rgb(181, 213, 255);}.ace-chrome .ace_marker-layer .ace_step {background: rgb(252, 255, 0);}.ace-chrome .ace_marker-layer .ace_stack {background: rgb(164, 229, 101);}.ace-chrome .ace_marker-layer .ace_bracket {margin: -1px 0 0 -1px;border: 1px solid rgb(192, 192, 192);}.ace-chrome .ace_marker-layer .ace_active-line {background: rgba(0, 0, 0, 0.07);}.ace-chrome .ace_gutter-active-line {background-color : #dcdcdc;}.ace-chrome .ace_marker-layer .ace_selected-word {background: rgb(250, 250, 255);border: 1px solid rgb(200, 200, 250);}.ace-chrome .ace_storage,.ace-chrome .ace_keyword,.ace-chrome .ace_meta.ace_tag {color: rgb(147, 15, 128);}.ace-chrome .ace_string.ace_regex {color: rgb(255, 0, 0)}.ace-chrome .ace_string {color: #1A1AA6;}.ace-chrome .ace_entity.ace_other.ace_attribute-name {color: #994409;}.ace-chrome .ace_indent-guide {background: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAACCAYAAACZgbYnAAAAE0lEQVQImWP4////f4bLly//BwAmVgd1/w11/gAAAABJRU5ErkJggg==") right repeat-y;}</style>
+      <!-- export.css -->
+      <style>
+        body{margin:0 auto;max-width:800px;line-height:1.4}
+        #nav{margin:5px 0 10px;font-size:15px}
+        #titlearea{border-bottom:1px solid #ccc;font-size:17px;padding:10px 0;}
+        #contentarea{font-size:15px;margin:16px 0}
+        .cell{outline:0;min-height:20px;margin:5px 0;padding:5px 0;}
+        .code-cell{font-family:Menlo,Consolas,'Ubuntu Mono',Monaco,'source-code-pro',monospace;font-size:12px;}
+        .latex-cell{white-space:pre-wrap;}
+      </style>
+      <!-- User CSS -->
+      <style> .text-cell {font-size: 15px;}.code-cell {font-size: 12px;}.markdown-cell {font-size: 15px;}.latex-cell {font-size: 15px;}</style>
+    </head>
+    <body>
+      <div id="nav"><div>Next: <a href='How to set up a project.html'>How to set up a project</a>, Previous: <a href='Common Command-Line Tasks and Tools.html'>Common Command-Line Tasks and Tools</a>, Up: <a href='index.html'>Index</a></div></div>
+      <div id="titlearea">
+        <h2>Command-Line Basics</h2>
+      </div>
+      <div id="contentarea"><div class="cell text-cell">Shells &nbsp;– Command-line interpreter<div>Bash – Shell environment</div></div><div class="cell code-cell"><div class="ace-chrome"><div class="ace_static_highlight ace_show_gutter" style="counter-reset:ace_line 0"><div class="ace_line"><span class="ace_gutter ace_gutter-cell" unselectable="on"></span><span class="ace_identifier">ls</span> <span class="ace_keyword ace_operator">-</span><span class="ace_identifier">lh</span> <span class="ace_keyword ace_operator">/</span><span class="ace_identifier">usr</span><span class="ace_keyword ace_operator">/</span><span class="ace_identifier">bin</span>
+</div><div class="ace_line"><span class="ace_gutter ace_gutter-cell" unselectable="on"></span><span class="ace_identifier">sort</span> <span class="ace_keyword ace_operator">-</span><span class="ace_identifier">u</span> <span class="ace_identifier">users</span><span class="ace_punctuation ace_operator">.</span><span class="ace_identifier">txt</span>
+</div><div class="ace_line"><span class="ace_gutter ace_gutter-cell" unselectable="on"></span><span class="ace_identifier">grep</span> <span class="ace_keyword ace_operator">-</span><span class="ace_identifier">i</span> <span class="ace_string ace_start">"</span><span class="ace_string">needle</span><span class="ace_string ace_end">"</span> <span class="ace_identifier">haystack</span>
+</div></div></div></div><div class="cell text-cell"><ul><li>Command</li><li>Options(s)</li><li>Arguments</li><ul><li>File</li><li>Directory</li></ul></ul><div>There will always be a command.</div><div>Not all commands require options nor arguments.</div></div><div class="cell text-cell"><h3>Options tell a command how to operate</h3><hr><div><ul><li>Start with a dash</li><li>Usually one letter</li><li>More than one offered by most commands</li><li>Options can be combined with a single dash</li><ul><li><code>​ls -lah ~/Desktop</code>​<br></li><li>List all hidden files</li></ul></ul></div></div><div class="cell code-cell"><div class="ace-chrome"><div class="ace_static_highlight ace_show_gutter" style="counter-reset:ace_line 0"><div class="ace_line"><span class="ace_gutter ace_gutter-cell" unselectable="on"></span><span class="ace_keyword ace_operator">-</span><span class="ace_identifier">l</span> <span class="ace_comment">// Long description</span>
+</div><div class="ace_line"><span class="ace_gutter ace_gutter-cell" unselectable="on"></span><span class="ace_keyword ace_operator">-</span><span class="ace_identifier">a</span> <span class="ace_comment">// All</span>
+</div><div class="ace_line"><span class="ace_gutter ace_gutter-cell" unselectable="on"></span><span class="ace_keyword ace_operator">-</span><span class="ace_identifier">h</span> <span class="ace_comment">// Hidden</span>
+</div></div></div></div><div class="cell text-cell"><h3>Nagivation Shortcuts</h3><hr></div><div class="cell markdown-cell"><table>
+<thead>
+<tr>
+<th>Key combination</th>
+<th>Result</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Ctrl-A(^A)</td>
+<td>Move to the beginning of the line</td>
+</tr>
+<tr>
+<td>Ctrl-A(^E)</td>
+<td>Move to the end of the line</td>
+</tr>
+<tr>
+<td>Ctrl-Left arrow</td>
+<td>Move backward a word</td>
+</tr>
+<tr>
+<td>Ctrl-Right arrow</td>
+<td>Move forward a word</td>
+</tr>
+<tr>
+<td>Ctrl-U</td>
+<td>Deletes from cursor to beginning of line</td>
+</tr>
+<tr>
+<td>Ctrl-K</td>
+<td>Deletes from cursor to end of line</td>
+</tr>
+<tr>
+<td>Ctrl-Shift-C</td>
+<td>Copy to clipboard</td>
+</tr>
+<tr>
+<td>Ctrl-Shift-V</td>
+<td>Paste from clipboard</td>
+</tr>
+</tbody>
+</table>
+</div><div class="cell text-cell"><h3>Find help for commands</h3><hr><code>​man</code>​<br><div>View the reference manual or man page for a specific command</div><div><code>​man ls</code>​<br></div><div><br></div><div><code>​help</code>​<br></div><div>Provide more information about a particular command</div><div><code>​ls —help</code>​<br></div></div><div class="cell text-cell"><h3>Files, Folders, and Permissions</h3><div><hr><code>~</code> ← User’s home folder</div><div><code>cd</code> ← Change directory | <font color="#323232" style="background-color: rgb(254, 250, 0);">Using it by itself takes you to your home directory</font></div><div><code>pwd</code> ← Print working directory</div><div><code>..</code> ← Parent folder</div><div><code>.</code> ← Current folder</div><div><br></div><div>The following example changes the directory to the desktop</div><div><code>​cd Desktop/</code>​<br></div><div><br></div><div>The following example changes the directory to a folder using spaces</div><div><code>​cd Desktop/Exercise\ Files</code>​<br></div><div><br></div><div>The following example displays all folders recursively in a directory</div><div></div><code>ls -R Documents/</code><div><br></div><div>The following examples demonstrates how to move back the folder structure</div><div><code>cd ..</code></div><div><br></div><div>The following example demonstrates how to move to the previous folder</div><div><code>cd -</code>​</div></div><div class="cell text-cell"><h3>A little more about ls</h3><hr>ls by itseld just gives a list; however, it can be customized to output the desired output.</div><div class="cell code-cell"><div class="ace-chrome"><div class="ace_static_highlight ace_show_gutter" style="counter-reset:ace_line 0"><div class="ace_line"><span class="ace_gutter ace_gutter-cell" unselectable="on"></span><span class="ace_identifier">drwxr</span><span class="ace_keyword ace_operator">-</span><span class="ace_identifier">xr</span><span class="ace_keyword ace_operator">-</span><span class="ace_identifier">x</span>   <span class="ace_constant ace_numeric">2</span> <span class="ace_identifier">jorgearuiz</span>  <span class="ace_identifier">staff</span>    68<span class="ace_identifier">B</span> <span class="ace_identifier">Jun</span> <span class="ace_constant ace_numeric">19</span>  <span class="ace_constant ace_numeric">2015</span> 3<span class="ace_identifier">DGallery</span>
+</div><div class="ace_line"><span class="ace_gutter ace_gutter-cell" unselectable="on"></span><span class="ace_identifier">drwxr</span><span class="ace_keyword ace_operator">-</span><span class="ace_identifier">xr</span><span class="ace_keyword ace_operator">-</span><span class="ace_identifier">x</span>  <span class="ace_constant ace_numeric">18</span> <span class="ace_identifier">jorgearuiz</span>  <span class="ace_identifier">staff</span>   612<span class="ace_identifier">B</span> <span class="ace_identifier">Oct</span> <span class="ace_constant ace_numeric">19</span>  <span class="ace_constant ace_numeric">2015</span> <span class="ace_punctuation ace_operator">:</span><span class="ace_identifier">r</span><span class="ace_punctuation ace_operator">:</span><span class="ace_identifier">redditgetsdrawn</span>
+</div><div class="ace_line"><span class="ace_gutter ace_gutter-cell" unselectable="on"></span><span class="ace_identifier">drwxr</span><span class="ace_keyword ace_operator">-</span><span class="ace_identifier">xr</span><span class="ace_keyword ace_operator">-</span><span class="ace_identifier">x</span>   <span class="ace_constant ace_numeric">3</span> <span class="ace_identifier">jorgearuiz</span>  <span class="ace_identifier">staff</span>   102<span class="ace_identifier">B</span> <span class="ace_identifier">Apr</span> <span class="ace_constant ace_numeric">16</span> <span class="ace_constant ace_numeric">02</span><span class="ace_punctuation ace_operator">:</span><span class="ace_constant ace_numeric">56</span> <span class="ace_identifier">Apple</span> <span class="ace_identifier">Stickies</span>
+</div><div class="ace_line"><span class="ace_gutter ace_gutter-cell" unselectable="on"></span><span class="ace_identifier">drwxr</span><span class="ace_keyword ace_operator">-</span><span class="ace_identifier">xr</span><span class="ace_keyword ace_operator">-</span><span class="ace_identifier">x</span>   <span class="ace_constant ace_numeric">4</span> <span class="ace_identifier">jorgearuiz</span>  <span class="ace_identifier">staff</span>   136<span class="ace_identifier">B</span> <span class="ace_identifier">Oct</span> <span class="ace_constant ace_numeric">19</span>  <span class="ace_constant ace_numeric">2015</span> <span class="ace_identifier">GitHub</span>
+</div><div class="ace_line"><span class="ace_gutter ace_gutter-cell" unselectable="on"></span><span class="ace_keyword ace_operator">-</span><span class="ace_identifier">rw</span><span class="ace_keyword ace_operator">-</span><span class="ace_identifier">r</span><span class="ace_keyword ace_operator">--</span><span class="ace_identifier">r</span><span class="ace_keyword ace_operator">--</span>@  <span class="ace_constant ace_numeric">1</span> <span class="ace_identifier">jorgearuiz</span>  <span class="ace_identifier">staff</span>   176<span class="ace_identifier">K</span> <span class="ace_identifier">Apr</span> <span class="ace_constant ace_numeric">23</span> <span class="ace_constant ace_numeric">01</span><span class="ace_punctuation ace_operator">:</span><span class="ace_constant ace_numeric">34</span> <span class="ace_identifier">it</span><span class="ace_keyword ace_operator">-</span><span class="ace_identifier">certification</span><span class="ace_keyword ace_operator">-</span><span class="ace_identifier">roadmap</span><span class="ace_punctuation ace_operator">.</span><span class="ace_identifier">pdf</span>
+</div><div class="ace_line"><span class="ace_gutter ace_gutter-cell" unselectable="on"></span><span class="ace_identifier">drwxr</span><span class="ace_keyword ace_operator">-</span><span class="ace_identifier">xr</span><span class="ace_keyword ace_operator">-</span><span class="ace_identifier">x</span>   <span class="ace_constant ace_numeric">3</span> <span class="ace_identifier">root</span>        <span class="ace_identifier">staff</span>   102<span class="ace_identifier">B</span> <span class="ace_identifier">Jun</span> <span class="ace_constant ace_numeric">12</span>  <span class="ace_constant ace_numeric">2016</span> <span class="ace_identifier">kvisoft</span>
+</div></div></div></div><div class="cell text-cell"><h3>Create and remove folders</h3><hr>The <code>mkdir</code> allows us to create folders and of course, directories.<div><br></div><div>The following command created a simple folder called files in the desktop folder</div><div></div><code>mkdir Desktop/files</code><div><br></div><div>The argument <code>-p</code> allows us to create the necessary folders when creating a directory that might have some missing folders.</div><div>For example:&nbsp;<code>​mkdir -p Desktop/files/downloads/music</code>​</div><div>Notice that the folders <i>files</i> and <i>downloads</i> might not exists; however, the argument <code>-p</code> makes sure they are created.</div><div><br></div><div>To delete a folder we use <code>rmdir</code>; however, it is important to understand that the <font color="#323232" style="background-color: rgb(254, 250, 0);">folder must be empty</font>.&nbsp;</div><div>For example</div><div></div><code>rmdir Desktop/files</code><div>The previous example would not work because it’s not empty, it contains some folders inside.</div></div><div class="cell text-cell"><h3>Copy, move, and delete files and folders</h3><hr>To copy a file in the same directory<div></div><code>cp my_text.txt my_text_copy.txt</code><div><br></div><div>To copy a file to another directory</div><div></div><code>cp my_text.txt ~/Desktop/</code><div><br></div><div>To copy a file to another directory with a different name</div><div><code>cp my_text.txt ~/Desktop/my_text_copy.txt</code></div><div><br></div><div>Moving files allows us to move and rename files within one command</div><div><code>mv my_text.txt files/my_text_copy.txt</code></div><div><br></div></div><div class="cell text-cell"><h3>Wildcards</h3><hr>* – Any number of any characters<div>? – One of any character</div><div><br></div><div>The following command moves all of the files with the .txt extension to a particular folder</div><div></div><code>mv *.txt Documents/text_files</code><div><br></div><div>The following command moves all of the files in a folder to a particular folder</div><div></div><code>mv Documents/myFiles/* Document/myOldFiles</code>​<div><br></div><div>In order to use the <code>?</code> wildcard, make the assumption that we have a folder with the following files:</div><div></div><code>poems.txt</code><div><code>poems3.txt</code></div><div><code>poems4.txt</code><div><br></div><div>The <code>?</code> wirldcard will allow us to delete the other poems files that are not <i>poems.txt</i></div><div><code>rm poems?.txt</code></div></div></div><div class="cell text-cell"><h3>Deletion</h3><hr>To delete various files within one folder<div><code>​rm -r files/</code>​<br></div><div><br></div><div>To delete single files</div><div><code>​rm files/my_text.txt</code>​<br></div></div><div class="cell text-cell"><h3>Find Files from the command line</h3><hr><code>​find . -name “poe*”</code>​<br><div>The previous command finds in the <font color="#323232" style="background-color: rgb(254, 250, 0);"><strike>current</strike> directory and its children</font>&nbsp;all files with a <font color="#323232" style="background-color: rgb(254, 250, 0);">name</font> starting with <i><font color="#323232" style="background-color: rgb(254, 250, 0);">poe</font></i></div><div><br></div><div><code>​find ~/Documents -name “*d*”</code>​<br></div><div>Find in the documents folder all files/folders with a name containing the letter d</div></div><div class="cell text-cell"><h3>Understand user roles and sudo</h3><hr><b>user</b> – No changes to the system<div><b>root</b> – Can make any changes to the system</div><div><br></div><div><b>sudo</b> – super user do | <font color="#323232" style="background-color: rgb(254, 250, 0);">Grants users root access</font></div><div><br></div><div>For example, in order to a normal user to view the <code>/root</code> folder, it is appropriate to type in:</div><div></div><code>sudo ls root/</code><div><br></div><div>To give up the root priviledges</div><div><code>sudo -k</code>​</div><div><br></div><div>To change to root user</div><div><code>su root</code></div></div><div class="cell text-cell"><h3>File Permissions</h3><hr>rwxrwxrwx the_file<div><ul><li>user</li><li>group</li><li>others</li></ul><div>r – run</div></div><div>w – write</div><div>x – execute</div><div><br></div><div>We can change the permissions of a file using the <code>chmod</code> command.</div><div><br></div><div>Two methods to represent permissions</div><div><ul><li>Octal</li><ul><li>755</li><li>644</li><li>777</li></ul><li>Symbolic</li><ul><li>a=r</li><li>g+w</li><li>o-x</li></ul></ul><div><code>chown root text.txt</code> ← Change ownership to root</div></div></div><div class="cell text-cell"><h3>Octal File Permissions</h3></div><div class="cell markdown-cell"><table>
+<thead>
+<tr>
+<th></th>
+<th>Read (4)</th>
+<th>Write (2)</th>
+<th>Execute (1)</th>
+<th>Result</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>User</td>
+<td>r</td>
+<td>w</td>
+<td>x</td>
+<td>7</td>
+</tr>
+<tr>
+<td>Group</td>
+<td>r</td>
+<td>-</td>
+<td>x</td>
+<td>5</td>
+</tr>
+<tr>
+<td>Others</td>
+<td>r</td>
+<td>-</td>
+<td>-</td>
+<td>4</td>
+</tr>
+</tbody>
+</table>
+</div><div class="cell text-cell"><h3>Symbolic Value Changes</h3></div><div class="cell markdown-cell"><table>
+<thead>
+<tr>
+<th>Original</th>
+<th>Symoblic Value</th>
+<th>Result</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>rw-e--e--</td>
+<td>+x</td>
+<td>rwxr-xr-x</td>
+</tr>
+<tr>
+<td>rwxrwxrwx</td>
+<td>g=w,o=r</td>
+<td>rwx-w-r--</td>
+</tr>
+<tr>
+<td>rwxrwxrwx</td>
+<td>a-x</td>
+<td>rw-rw-rw</td>
+</tr>
+</tbody>
+</table>
+</div><div class="cell text-cell">a – All<div>u – User</div><div>g – Group</div><div>O – Others</div></div><div class="cell text-cell">The following command would remove the execute permissions from the user<div><div></div><code>chmod u-r ~/Desktop/text.txt&nbsp;</code></div><div><code>cat ~/Desktop/text.txt&nbsp;</code><div></div></div></div><div class="cell text-cell"><h3>Other commands</h3><hr><code>cat</code> – Look into a file<div><code>touch</code> – Create a file</div><div><code>vi</code> – Enter vim</div></div></div>
+      <script>document.body.onkeyup = function(e) {
+if (e.keyCode === 39) window.location.href = 'How to set up a project.html';
+if (e.keyCode === 37) window.location.href = 'Common Command-Line Tasks and Tools.html';
+}</script>
+    </body>
+    </html>
+  

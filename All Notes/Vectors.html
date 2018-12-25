@@ -1,0 +1,81 @@
+
+    <!DOCTYPE html>
+    <html>
+    <head>
+      <meta charset="utf-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <!-- common.css -->
+      <style>* {-webkit-tap-highlight-color: rgba(0,0,0,0);}html {-webkit-text-size-adjust: none;}body {font-family: -apple-system, Helvetica, Arial, sans-serif;margin: 0;padding: 20px;color: #333;word-wrap: break-word;}h1, h2, h3, h4, h5, h6 {line-height: 1.1;}img {max-width: 100% !important;height: auto;}blockquote {margin: 0;padding: 0 15px;color: #777;border-left: 4px solid #ddd;}hr {background-color: #ddd;border: 0;height: 1px;margin: 15px 0;}code {font-family: Menlo, Consolas, 'Ubuntu Mono', Monaco, 'source-code-pro', monospace;line-height: 1.4;margin: 0;padding: 0.2em 0;font-size: 90%;background-color: rgba(0,0,0,0.04);border-radius: 3px;}pre > code {margin: 0;padding: 0;font-size: 100%;word-break: normal;background: transparent;border: 0;}ol {list-style-type: decimal;}ol ol, ul ol {list-style-type: lower-latin;}ol ol ol, ul ol ol, ul ul ol, ol ul ol {list-style-type: lower-roman;}table {border-spacing: 0;border-collapse: collapse;margin-top: 0;margin-bottom: 16px;}table th {font-weight: bold;}table th, table td {padding: 6px 13px;border: 1px solid #ddd;}table tr {border-top: 1px solid #ccc;}table tr:nth-child(even) {background-color: #f8f8f8;}input[type="checkbox"] {cursor: default;margin-right: 0.5em;font-size: 13px;}.task-list-item {list-style-type: none;}.task-list-item+.task-list-item {margin-top: 3px;}.task-list-item input {float: left;margin: 0.3em 1em 0.25em -1.6em;vertical-align: middle;}#tag-field {margin: 8px 2px 10px;}#tag-field .tag {display: inline-block;background: #cadff3;border-radius: 4px;padding: 1px 8px;color: black;font-size: 12px;margin-right: 10px;line-height: 1.4;}</style>
+      <!-- ace-static.css -->
+      <style>.ace_static_highlight {white-space: pre-wrap;}.ace_static_highlight .ace_gutter {width: 2em;text-align: right;padding: 0 3px 0 0;margin-right: 3px;}.ace_static_highlight.ace_show_gutter > .ace_line {padding-left: 2.6em;}.ace_static_highlight .ace_line {position: relative;}.ace_static_highlight .ace_gutter-cell {-moz-user-select: -moz-none;-khtml-user-select: none;-webkit-user-select: none;user-select: none;top: 0;bottom: 0;left: 0;position: absolute;}.ace_static_highlight .ace_gutter-cell:before {content: counter(ace_line, decimal);counter-increment: ace_line;}.ace_static_highlight {counter-reset: ace_line;}</style>
+      <style>.ace-chrome .ace_gutter {background: #ebebeb;color: #333;overflow : hidden;}.ace-chrome .ace_print-margin {width: 1px;background: #e8e8e8;}.ace-chrome {background-color: #FFFFFF;color: black;}.ace-chrome .ace_cursor {color: black;}.ace-chrome .ace_invisible {color: rgb(191, 191, 191);}.ace-chrome .ace_constant.ace_buildin {color: rgb(88, 72, 246);}.ace-chrome .ace_constant.ace_language {color: rgb(88, 92, 246);}.ace-chrome .ace_constant.ace_library {color: rgb(6, 150, 14);}.ace-chrome .ace_invalid {background-color: rgb(153, 0, 0);color: white;}.ace-chrome .ace_fold {}.ace-chrome .ace_support.ace_function {color: rgb(60, 76, 114);}.ace-chrome .ace_support.ace_constant {color: rgb(6, 150, 14);}.ace-chrome .ace_support.ace_type,.ace-chrome .ace_support.ace_class.ace-chrome .ace_support.ace_other {color: rgb(109, 121, 222);}.ace-chrome .ace_variable.ace_parameter {font-style:italic;color:#FD971F;}.ace-chrome .ace_keyword.ace_operator {color: rgb(104, 118, 135);}.ace-chrome .ace_comment {color: #236e24;}.ace-chrome .ace_comment.ace_doc {color: #236e24;}.ace-chrome .ace_comment.ace_doc.ace_tag {color: #236e24;}.ace-chrome .ace_constant.ace_numeric {color: rgb(0, 0, 205);}.ace-chrome .ace_variable {color: rgb(49, 132, 149);}.ace-chrome .ace_xml-pe {color: rgb(104, 104, 91);}.ace-chrome .ace_entity.ace_name.ace_function {color: #0000A2;}.ace-chrome .ace_heading {color: rgb(12, 7, 255);}.ace-chrome .ace_list {color:rgb(185, 6, 144);}.ace-chrome .ace_marker-layer .ace_selection {background: rgb(181, 213, 255);}.ace-chrome .ace_marker-layer .ace_step {background: rgb(252, 255, 0);}.ace-chrome .ace_marker-layer .ace_stack {background: rgb(164, 229, 101);}.ace-chrome .ace_marker-layer .ace_bracket {margin: -1px 0 0 -1px;border: 1px solid rgb(192, 192, 192);}.ace-chrome .ace_marker-layer .ace_active-line {background: rgba(0, 0, 0, 0.07);}.ace-chrome .ace_gutter-active-line {background-color : #dcdcdc;}.ace-chrome .ace_marker-layer .ace_selected-word {background: rgb(250, 250, 255);border: 1px solid rgb(200, 200, 250);}.ace-chrome .ace_storage,.ace-chrome .ace_keyword,.ace-chrome .ace_meta.ace_tag {color: rgb(147, 15, 128);}.ace-chrome .ace_string.ace_regex {color: rgb(255, 0, 0)}.ace-chrome .ace_string {color: #1A1AA6;}.ace-chrome .ace_entity.ace_other.ace_attribute-name {color: #994409;}.ace-chrome .ace_indent-guide {background: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAACCAYAAACZgbYnAAAAE0lEQVQImWP4////f4bLly//BwAmVgd1/w11/gAAAABJRU5ErkJggg==") right repeat-y;}</style>
+      <!-- export.css -->
+      <style>
+        body{margin:0 auto;max-width:800px;line-height:1.4}
+        #nav{margin:5px 0 10px;font-size:15px}
+        #titlearea{border-bottom:1px solid #ccc;font-size:17px;padding:10px 0;}
+        #contentarea{font-size:15px;margin:16px 0}
+        .cell{outline:0;min-height:20px;margin:5px 0;padding:5px 0;}
+        .code-cell{font-family:Menlo,Consolas,'Ubuntu Mono',Monaco,'source-code-pro',monospace;font-size:12px;}
+        .latex-cell{white-space:pre-wrap;}
+      </style>
+      <!-- User CSS -->
+      <style> .text-cell {font-size: 15px;}.code-cell {font-size: 12px;}.markdown-cell {font-size: 15px;}.latex-cell {font-size: 15px;}</style>
+    </head>
+    <body>
+      <div id="nav"><div>Next: <a href='Arrays.html'>Arrays</a>, Previous: <a href='Algorithmic operations.html'>Algorithmic operations</a>, Up: <a href='index.html'>Index</a></div></div>
+      <div id="titlearea">
+        <h2>Vectors</h2>
+      </div>
+      <div id="contentarea"><div class="cell text-cell"><h2>Vectors</h2><hr>The <u>standard template library</u>(STL) offers a vector data type, which in many ways is superior to standard arrays.<div>&nbsp;</div><div>The <u><i>standard template library</i>(STL)</u>&nbsp;is a collection of algorithms and data types. These are programmer defined, and they are also part of <u><i>using namespace std</i>(STD)</u>.</div><div><br></div><div><ul><li>A vector <font color="#323232" style="background-color: rgb(254, 250, 0);">can hold a sequence of values/ elements</font>.</li><li>A vector <font color="#323232" style="background-color: rgb(254, 250, 0);">stores its elements in continuous memory locations</font>.</li><li>We can <font color="#323232" style="background-color: rgb(254, 250, 0);">use subscripts to access individual elements</font> in a vector →&nbsp;<code>​vectorVar[n]</code>​</li><li><font color="#323232" style="background-color: rgb(254, 250, 0);">No declarator is needed</font>.</li><li>Vectors can <font color="#323232" style="background-color: rgb(254, 250, 0);">increase size in order to accomodate new values</font> if vector is already full.</li><li>Vectors <font color="#323232" style="background-color: rgb(254, 250, 0);">can report the number of elements they contain</font>.</li></ul></div></div><div class="cell text-cell"><h3>Defining a vector</h3><hr>In order <font color="#323232" style="background-color: rgb(254, 250, 0);"><b>to declare a vector, include the following header</b></font>.<div><code>​#include &lt;vector&gt;</code>​<br></div><div>Now, <font color="#323232" style="background-color: rgb(254, 250, 0);"><b>declare a vector</b></font> by following the next example.</div><div><code>​vector&lt;int&gt; numbers;</code>​<br></div><div>Where&nbsp;<code>​&lt;int&gt;</code>​ is the data type and&nbsp;<code>​number</code>​<code>​s</code>​ is the name of the vector variable.</div><div>If you wish to <font color="#323232" style="background-color: rgb(254, 250, 0);"><b>declare a vector and declare the size at the same time</b></font>, then you achieve that by placing&nbsp;<code>​()</code>​ containing the size in front of the vector variable.</div><div><b>For example:</b></div><div><code>​vector&lt;int&gt; numbers(5);</code>​<br></div><div>The 5 is the number of elements that the vector should be able to hold; however, the vector could keep increasing if more elements are needed.</div><div>If you wish to <font color="#323232" style="background-color: rgb(254, 250, 0);"><b>initialize all of the 5 elements of the&nbsp;<code>​numbers</code>​ vector variable to 0</b></font>, then perform the following changes when declaring the vector.</div><div><code>​vector&lt;int&gt; numbers(5,<u>2</u>);</code>​<br></div><div>Notice that the second argument, the 2 is the values that will be stored in all 5 elements of the vector.</div><div><font color="#323232" style="background-color: rgb(254, 250, 0);"><b>Initializing a vector with the values of another vector.</b></font></div><div><code>​vector&lt;int&gt; var02(var01);</code>​<br></div><div><code>​var02</code>​ will have the same elements and values as&nbsp;<code>​var01</code>​.</div></div><div class="cell text-cell"><h3>Storing and retrieving values in a vector</h3><hr>We can manipulate vectors as if they were normal arrays by placing&nbsp;<code>​[n]</code>​, thus allowing us to access the elements through the subscript.</div><div class="cell text-cell"><h3>Using the pushback member function</h3><hr>We use&nbsp;<code>​push_back</code>​ to store a value in a vector that does not have a starting size, or that is already full. This function stores the value in a new element placed at the end of the vector. It “pushes” the value at the end of the vector.<div><b>For example:<br></b><div><code>​var.push_back(25);</code>​</div></div><div>This pushes the 25 to the end of&nbsp;<code>​var</code>​, thus adding a new element to the vector.</div><div><br></div><div>This is quite useful when you need <u>unlimited elements</u>. Or when the number of elements must be specified by the user.</div><div>Notice that we would still be able to access by placing the brackets →&nbsp;<code>​var[i]</code>​</div></div><div class="cell text-cell"><h3>Determining the size of a vector</h3><hr>To obtain the size of a vector, simply append&nbsp;<code>​.size()</code>​ to a vector variable. This will yield an integer value.<div>For example:</div><div><code>​vectorSize = vectorVar.size();</code>​<br></div><div><br></div><div>This would be very useful when combined with a for loop.</div><div><code>​for(int i=0; i&lt;vectorVar.size(); i++){</code><br></div><div><code>&nbsp; cout &lt;&lt; vectorVar[i] &lt;&lt; endl;</code></div><div><font face="Menlo, Consolas, Ubuntu Mono, Monaco, source-code-pro, monospace"><span style="font-size: 11.699999809265137px; background-color: rgba(0, 0, 0, 0.0392157);">}</span></font></div></div><div class="cell text-cell"><h3>Passing a vector to a function</h3><hr><b>The prototype:</b><div><code>​void functionName(vector&lt;int&gt;);</code></div><div><b>The header:</b></div><div><code>​void functionName(vector&lt;int&gt; var){...}</code><br></div><div><b>Calling the function:</b></div><div><code>​functionName(var);</code>​<br></div></div><div class="cell text-cell"><h3>Removing elements from a vector</h3><hr>To remove an element we use the&nbsp;<code>​pop_back</code>​ member function. The&nbsp;<code>​pop_back</code>​ member function removes the last element from the vector variable.<div><code>​var.pop_back();</code>​<br></div></div><div class="cell text-cell"><h3>Clearing a vector</h3><hr>Appending the&nbsp;<code>​.clear()</code>​ member function will clear a vector.<div><code>​var.clear();</code>​<br></div></div><div class="cell markdown-cell"><h3>Summary of vector member functions</h3>
+<hr>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">Member Function</th>
+<th style="text-align:left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left"><code>.at(position)</code></td>
+<td style="text-align:left">Returns the value of the element located at a particular position in the vector.</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>.capacity()</code></td>
+<td style="text-align:left">Returns the maximum number of elements that may be stored in the vector.</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>.empty</code></td>
+<td style="text-align:left">Returns true if vector is empty.</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>.push_back(value)</code></td>
+<td style="text-align:left">Stores a value in the last element of the vector. If full, new element is created.</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>.reverse()</code></td>
+<td style="text-align:left">Reverses the order of the elements in the vector (last becomes first and so on).</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>.resize(n)</code></td>
+<td style="text-align:left">Resizes a vector to have n elements, where is greater than the vector's current size.</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>.resize(n, value)</code></td>
+<td style="text-align:left">Resizes a vector to have n elements, and populates them with the given value.</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>.swap(vector2)</code></td>
+<td style="text-align:left">Swaps the content of the vector with the contents of <em>vector 2</em>.</td>
+</tr>
+</tbody>
+</table>
+</div><div class="cell text-cell"><h3>Arrays of class objects</h3><hr>Elements of arrays can be class objects or structures.<div><code>​Circle circle[3];</code>​ &lt;—————&nbsp;<code>​class_name variable_name[declarator];</code>​</div></div></div>
+      <script>document.body.onkeyup = function(e) {
+if (e.keyCode === 39) window.location.href = 'Arrays.html';
+if (e.keyCode === 37) window.location.href = 'Algorithmic operations.html';
+}</script>
+    </body>
+    </html>
+  

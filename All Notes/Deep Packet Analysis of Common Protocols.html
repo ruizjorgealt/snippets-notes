@@ -1,0 +1,109 @@
+
+    <!DOCTYPE html>
+    <html>
+    <head>
+      <meta charset="utf-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <!-- common.css -->
+      <style>* {-webkit-tap-highlight-color: rgba(0,0,0,0);}html {-webkit-text-size-adjust: none;}body {font-family: -apple-system, Helvetica, Arial, sans-serif;margin: 0;padding: 20px;color: #333;word-wrap: break-word;}h1, h2, h3, h4, h5, h6 {line-height: 1.1;}img {max-width: 100% !important;height: auto;}blockquote {margin: 0;padding: 0 15px;color: #777;border-left: 4px solid #ddd;}hr {background-color: #ddd;border: 0;height: 1px;margin: 15px 0;}code {font-family: Menlo, Consolas, 'Ubuntu Mono', Monaco, 'source-code-pro', monospace;line-height: 1.4;margin: 0;padding: 0.2em 0;font-size: 90%;background-color: rgba(0,0,0,0.04);border-radius: 3px;}pre > code {margin: 0;padding: 0;font-size: 100%;word-break: normal;background: transparent;border: 0;}ol {list-style-type: decimal;}ol ol, ul ol {list-style-type: lower-latin;}ol ol ol, ul ol ol, ul ul ol, ol ul ol {list-style-type: lower-roman;}table {border-spacing: 0;border-collapse: collapse;margin-top: 0;margin-bottom: 16px;}table th {font-weight: bold;}table th, table td {padding: 6px 13px;border: 1px solid #ddd;}table tr {border-top: 1px solid #ccc;}table tr:nth-child(even) {background-color: #f8f8f8;}input[type="checkbox"] {cursor: default;margin-right: 0.5em;font-size: 13px;}.task-list-item {list-style-type: none;}.task-list-item+.task-list-item {margin-top: 3px;}.task-list-item input {float: left;margin: 0.3em 1em 0.25em -1.6em;vertical-align: middle;}#tag-field {margin: 8px 2px 10px;}#tag-field .tag {display: inline-block;background: #cadff3;border-radius: 4px;padding: 1px 8px;color: black;font-size: 12px;margin-right: 10px;line-height: 1.4;}</style>
+      <!-- ace-static.css -->
+      <style>.ace_static_highlight {white-space: pre-wrap;}.ace_static_highlight .ace_gutter {width: 2em;text-align: right;padding: 0 3px 0 0;margin-right: 3px;}.ace_static_highlight.ace_show_gutter > .ace_line {padding-left: 2.6em;}.ace_static_highlight .ace_line {position: relative;}.ace_static_highlight .ace_gutter-cell {-moz-user-select: -moz-none;-khtml-user-select: none;-webkit-user-select: none;user-select: none;top: 0;bottom: 0;left: 0;position: absolute;}.ace_static_highlight .ace_gutter-cell:before {content: counter(ace_line, decimal);counter-increment: ace_line;}.ace_static_highlight {counter-reset: ace_line;}</style>
+      <style>.ace-chrome .ace_gutter {background: #ebebeb;color: #333;overflow : hidden;}.ace-chrome .ace_print-margin {width: 1px;background: #e8e8e8;}.ace-chrome {background-color: #FFFFFF;color: black;}.ace-chrome .ace_cursor {color: black;}.ace-chrome .ace_invisible {color: rgb(191, 191, 191);}.ace-chrome .ace_constant.ace_buildin {color: rgb(88, 72, 246);}.ace-chrome .ace_constant.ace_language {color: rgb(88, 92, 246);}.ace-chrome .ace_constant.ace_library {color: rgb(6, 150, 14);}.ace-chrome .ace_invalid {background-color: rgb(153, 0, 0);color: white;}.ace-chrome .ace_fold {}.ace-chrome .ace_support.ace_function {color: rgb(60, 76, 114);}.ace-chrome .ace_support.ace_constant {color: rgb(6, 150, 14);}.ace-chrome .ace_support.ace_type,.ace-chrome .ace_support.ace_class.ace-chrome .ace_support.ace_other {color: rgb(109, 121, 222);}.ace-chrome .ace_variable.ace_parameter {font-style:italic;color:#FD971F;}.ace-chrome .ace_keyword.ace_operator {color: rgb(104, 118, 135);}.ace-chrome .ace_comment {color: #236e24;}.ace-chrome .ace_comment.ace_doc {color: #236e24;}.ace-chrome .ace_comment.ace_doc.ace_tag {color: #236e24;}.ace-chrome .ace_constant.ace_numeric {color: rgb(0, 0, 205);}.ace-chrome .ace_variable {color: rgb(49, 132, 149);}.ace-chrome .ace_xml-pe {color: rgb(104, 104, 91);}.ace-chrome .ace_entity.ace_name.ace_function {color: #0000A2;}.ace-chrome .ace_heading {color: rgb(12, 7, 255);}.ace-chrome .ace_list {color:rgb(185, 6, 144);}.ace-chrome .ace_marker-layer .ace_selection {background: rgb(181, 213, 255);}.ace-chrome .ace_marker-layer .ace_step {background: rgb(252, 255, 0);}.ace-chrome .ace_marker-layer .ace_stack {background: rgb(164, 229, 101);}.ace-chrome .ace_marker-layer .ace_bracket {margin: -1px 0 0 -1px;border: 1px solid rgb(192, 192, 192);}.ace-chrome .ace_marker-layer .ace_active-line {background: rgba(0, 0, 0, 0.07);}.ace-chrome .ace_gutter-active-line {background-color : #dcdcdc;}.ace-chrome .ace_marker-layer .ace_selected-word {background: rgb(250, 250, 255);border: 1px solid rgb(200, 200, 250);}.ace-chrome .ace_storage,.ace-chrome .ace_keyword,.ace-chrome .ace_meta.ace_tag {color: rgb(147, 15, 128);}.ace-chrome .ace_string.ace_regex {color: rgb(255, 0, 0)}.ace-chrome .ace_string {color: #1A1AA6;}.ace-chrome .ace_entity.ace_other.ace_attribute-name {color: #994409;}.ace-chrome .ace_indent-guide {background: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAACCAYAAACZgbYnAAAAE0lEQVQImWP4////f4bLly//BwAmVgd1/w11/gAAAABJRU5ErkJggg==") right repeat-y;}</style>
+      <!-- export.css -->
+      <style>
+        body{margin:0 auto;max-width:800px;line-height:1.4}
+        #nav{margin:5px 0 10px;font-size:15px}
+        #titlearea{border-bottom:1px solid #ccc;font-size:17px;padding:10px 0;}
+        #contentarea{font-size:15px;margin:16px 0}
+        .cell{outline:0;min-height:20px;margin:5px 0;padding:5px 0;}
+        .code-cell{font-family:Menlo,Consolas,'Ubuntu Mono',Monaco,'source-code-pro',monospace;font-size:12px;}
+        .latex-cell{white-space:pre-wrap;}
+      </style>
+      <!-- User CSS -->
+      <style> .text-cell {font-size: 15px;}.code-cell {font-size: 12px;}.markdown-cell {font-size: 15px;}.latex-cell {font-size: 15px;}</style>
+    </head>
+    <body>
+      <div id="nav"><div>Next: <a href='Review of the Open Systems Interconnection (OSI) Model.html'>Review of the Open Systems Interconnection (OSI) Model</a>, Previous: <a href='Common Attack Signatures.html'>Common Attack Signatures</a>, Up: <a href='index.html'>Index</a></div></div>
+      <div id="titlearea">
+        <h2>Deep Packet Analysis of Common Protocols</h2>
+      </div>
+      <div id="contentarea"><div class="cell text-cell"><b>TCP – Transmission Control Protocol (RFC 793)</b><div><ul><li>Connection oriented protocol</li><li>Begins with a handshake</li><li>Data is sequenced and acknowledged</li><li>Supports windowing</li><li>Managed data transfer with flow control</li></ul></div></div><div class="cell text-cell"><img src="resources/7F002090AD638437098CB73FF4E38547.png" alt="Screen Shot 2018-05-28 at 6.43.58 PM.png" width="817" height="451"></div><div class="cell text-cell"><b>TCP Three-Way Handshake</b><div><ul><li>SYN<br></li><li>SYN and ACK<br></li><li>ACK<br></li></ul></div></div><div class="cell text-cell"><b>When Services are Refused</b><div><ul><li>SYN packet with a RST</li><li>No response may mean a firewall</li><li>ICMP Destination Unreachable packet</li><li>The host may try again with a SYN package</li></ul></div></div><div class="cell text-cell"><b>Terminating TCP Communication</b><div><ul><li>The connection will time out and close</li><li>No password sent so the connection is RST</li><li>FIN packetss are exchanged for normal termination</li></ul></div></div><div class="cell text-cell"><h3>IPv4</h3><hr><ul><li>Connectionless – Best effort</li><li>Addressing</li><li>Fragmentation</li></ul></div><div class="cell text-cell"><h3>HTTP</h3><hr><ul><li>Two types of HTTP messages:</li><ul><li>Request</li><li>Response</li></ul><li>Web page consists of objects</li><li>HTTP is a stateless protocol</li></ul><div><b>HTTP Request Message</b></div><div><ul><li>Request line (GET or POST methods)</li><li>Uniform Resource Indentifier (URI)</li><li>Additional information of request</li></ul><div><b>HTTP Response Message</b></div></div><div><ul><li>Status code line</li><li>Header Fields</li><li>Data</li></ul></div><div><b>HTTP Response Status Codes</b></div><div><ul><li>2xx: Success</li><li>3xx: Redirection</li><li>4xx: Client Error</li><li>5xx: Server Error</li></ul><div><b>Non-persistent HTTP Connections</b></div></div><div><ul><li>Establishes one TCP connection</li><li>One object is sent over a TCP connection</li><li>Closes that TCP connection</li><li>Repeat this process for each object</li><li>HTTP/1.0 uses non-persistent HTTP</li></ul><div><b>Persistent HTTP Connections</b></div></div><div><ul><li>Multiple objects can be sent over a single TCP connection</li><li>No need to establish/close multiple connections</li><li>HTTP/1.1 uses persistent connections in default mode</li></ul></div></div><div class="cell text-cell"><h3>Mastering DNS</h3><hr><ul><li>Essential to any network</li><li>Converts host names to an IP address</li><li>Runs on port 53 over UDP or TCP</li><li>Transfers name information between DNS servers</li></ul><div><b>DNS Queries and Reponses</b></div><div><ul><li>Client sends query to a DNS server for an IP address</li><li>Server responds with information</li><li>Can ask other DNS servers for the information</li></ul><div>The 4 Sections of a DNS Header</div></div><div><ul><li>Questions</li><ul><li>Answer Resource Records</li><li>Authority Resources Records</li><li>Additional Resource Records</li></ul></ul></div></div><div class="cell text-cell"><b>Types of DNS Queries</b></div><div class="cell markdown-cell"><table>
+<thead>
+<tr>
+<th>Value</th>
+<th>Type</th>
+<th>Description</th>
+<th>Function</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>A</td>
+<td>Address</td>
+<td>Returns a 32-bit IPv4 address. Used to convert a domain name to IPv4</td>
+</tr>
+<tr>
+<td>2</td>
+<td>NS</td>
+<td>Name Server</td>
+<td>Identifies the authoritative servers for a zone</td>
+</tr>
+<tr>
+<td>5</td>
+<td>CNAME</td>
+<td>Canonical Name</td>
+<td>Defines an alias for the official name of a host</td>
+</tr>
+<tr>
+<td>6</td>
+<td>SOA</td>
+<td>Start of Authority</td>
+<td>Marks the beginning of a zone. Usually the first record in a zone file</td>
+</tr>
+<tr>
+<td>12</td>
+<td>PTR</td>
+<td>Pointer</td>
+<td>Used to convert an IP address to domain name</td>
+</tr>
+<tr>
+<td>13</td>
+<td>HINFO</td>
+<td>Host Info</td>
+<td>Shows host information</td>
+</tr>
+<tr>
+<td>15</td>
+<td>MX</td>
+<td>Mail Exchange</td>
+<td>Redirects mail to a mail server</td>
+</tr>
+<tr>
+<td>28</td>
+<td>AAAA</td>
+<td>IPv6 Address Record</td>
+<td>It shows the IP version 6 address</td>
+</tr>
+<tr>
+<td>252</td>
+<td>AXFR</td>
+<td>Authoritative Zone Transfer</td>
+<td>A request for the transfer for the entire zone</td>
+</tr>
+<tr>
+<td>255</td>
+<td>ANY</td>
+<td>All Cached Records</td>
+<td>Request for all records</td>
+</tr>
+</tbody>
+</table>
+</div><div class="cell text-cell"><h3>UDP – User Datagram Protocol</h3><hr><ul><li>A simple protocol</li><li>Provides connectionless Transport Layer service</li><li>No handshake or connection process</li><li>No ordering or reliability services</li><li>Few problems occur with UDP</li></ul></div><div class="cell text-cell"><b>UDP Applications</b><div><ul><li>Domain Name Systems (DNS)</li><li>Voice over IP (VoIP)</li><li>Routing Information Protocol (RIP)</li><li>Trivial File Transfer Protocol (TFTP)</li><li>Dynamic Host Configuration Protocol (DHCP)</li></ul></div></div><div class="cell text-cell"><b>UDP Header</b><div><ul><li>Source Port</li><li>Destination</li><li>Length Field</li><li>Checksum</li><ul><li>Used for error checking</li><li>Is optional with IPv4</li><li>When UDP runs over IPv6, the checksum is mandatory</li></ul></ul></div></div><div class="cell text-cell"><h3>FTP – File Transfer Protocol</h3><hr><div><ul><li>TCP based client/server model</li><li>FTP client initiates transfer</li><li>Transfers file to an from remote FTP server</li><li>Uses two separate connections</li><li>FTP server maintains state information</li></ul></div></div><div class="cell text-cell"><b>FTP Connections</b><div><ul><li>Clients contacts server at port 21</li><li>Establishes a control connection</li><li>Client is authenticated over control connection</li><li>Client browses remote directory</li></ul></div></div><div class="cell text-cell"><b>Active FTP</b><div><ol><li>Client Sends Port Request</li><ol><li>PORT command over the control connection (Port 21)</li></ol><li>Client Listens Server Initiates</li><ol><li>The client listens at the requested port number and the server initiates the TCP connection.</li></ol></ol></div></div><div class="cell text-cell"><b>Passive FTP</b><div><ol><li>Client Sends Passive Request</li><ol><li>PASV command over the control connection (Port 21)</li></ol><li>Server Opens Port Replies to Client</li><ol><li>The server opens a random unpriviledged port and sends back the port number to the client over the control connection.</li></ol><li>Client Connects</li><ol><li>The client then initiates the connection to the port opened by the server to transfer data.</li></ol></ol></div></div><div class="cell text-cell"><h3>ICMP – Internet Control Message Protocol</h3><hr>ICMP is used by routers, intermediary devices or hosts to communicate updates or error information to other routers, intermediary devices or hosts. And it is also used to troubleshoot network issues.<br><div><br></div><div>ICMP is an integral part of IP, and must be implemented by every IP module.</div></div><div class="cell text-cell"><b>ICMP</b><div><ul><li>Used to communicate updates or error messages</li><li>No data is exchanged</li><li>Used by ping echo-request/echo-reply</li></ul><div>ICMP is essentially a scout for IP; making sure the route is clear, and communicating any errors.</div></div></div><div class="cell text-cell"><b>ICMP Query Messages</b><div><ul><li>Echo request/echo reply</li><li>Time stamp request/time stamp reply</li><li>Information request/information reply</li><li>Subnet mask request/subnet mask reply</li></ul></div></div><div class="cell text-cell"><b>Type 3 Destination Unreachable</b><div><ul><li>0 – Net Unreachable</li><li>1 – Host Unreachable</li><li>2 – Protocol Unreachable</li></ul></div></div><div class="cell text-cell"><b>Type 5 Redirect Codes</b> ← Generated by routers, not hosts<div><ul><li>0 – Redirect Datagram for Network</li><li>1 – Redirect Datagram for Host</li><li>2 – Redirect Datagram for Type of Service</li></ul></div></div><div class="cell text-cell"><b>Type 11 Time Exceeded Codes</b><div><ul><li>0 – TTL Exceeded (TIme to Live)</li><li>1 – Fragment Reassembly Time Exceeded</li></ul></div></div><div class="cell text-cell"><b>Which ICMP traffic do you allow?</b><div><ul><li>Necessary Types</li><ul><li>3 – Destination unreachable</li><li>4 – Source quench</li></ul><li>Optional Types</li><ul><li>0 – Echo Reply</li><li>8 – Echo</li><li>11 – Time Exceeded</li></ul></ul></div></div></div>
+      <script>document.body.onkeyup = function(e) {
+if (e.keyCode === 39) window.location.href = 'Review of the Open Systems Interconnection (OSI) Model.html';
+if (e.keyCode === 37) window.location.href = 'Common Attack Signatures.html';
+}</script>
+    </body>
+    </html>
+  
