@@ -23,16 +23,24 @@
       <style> .text-cell {font-size: 15px;}.code-cell {font-size: 12px;}.markdown-cell {font-size: 15px;}.latex-cell {font-size: 15px;}</style>
     </head>
     <body>
-      <div id="nav"><div>Next: <a href='META+LAB Immersive Summer 2018.html'>META+LAB Immersive Summer 2018 </a>, Previous: <a href='Adding a User to a Group.html'>Adding a User to a Group</a>, Up: <a href='index.html'>Index</a></div></div>
+      <div id="nav"><div>Next: <a href='Apache 2.2 vs 2.4 VHost.html'>Apache 2.2 vs 2.4 VHost</a>, Previous: <a href='See open ports and who is listening.html'>See open ports and who is listening</a>, Up: <a href='index.html'>Index</a></div></div>
       <div id="titlearea">
-        <h2>Processes</h2>
+        <h2>Executing tasks on selected groups</h2>
       </div>
-      <div id="contentarea"><div class="cell text-cell">To see processes running on your local machine, use the following commands:</div><div class="cell code-cell"><div class="ace-chrome"><div class="ace_static_highlight ace_show_gutter" style="counter-reset:ace_line 0"><div class="ace_line"><span class="ace_gutter ace_gutter-cell" unselectable="on"></span><span class="ace_identifier">ps</span> <span class="ace_identifier">aux</span>
-</div></div></div></div><div class="cell code-cell"><div class="ace-chrome"><div class="ace_static_highlight ace_show_gutter" style="counter-reset:ace_line 0"><div class="ace_line"><span class="ace_gutter ace_gutter-cell" unselectable="on"></span><span class="ace_identifier">top</span> <span class="ace_keyword ace_operator">-</span><span class="ace_identifier">o</span> <span class="ace_identifier">mem</span>
+      <div id="contentarea"><div class="cell code-cell"><div class="ace-chrome"><div class="ace_static_highlight ace_show_gutter" style="counter-reset:ace_line 0"><div class="ace_line"><span class="ace_gutter ace_gutter-cell" unselectable="on"></span><span class="ace_paren ace_lparen">[</span><span class="ace_identifier">csumetalab</span><span class="ace_paren ace_rparen">]</span>
+</div><div class="ace_line"><span class="ace_gutter ace_gutter-cell" unselectable="on"></span>
+</div><div class="ace_line"><span class="ace_gutter ace_gutter-cell" unselectable="on"></span>
+</div><div class="ace_line"><span class="ace_gutter ace_gutter-cell" unselectable="on"></span><span class="ace_paren ace_lparen">[</span><span class="ace_identifier">sandbox</span><span class="ace_paren ace_rparen">]</span>
+</div><div class="ace_line"><span class="ace_gutter ace_gutter-cell" unselectable="on"></span><span class="ace_identifier">context</span><span class="ace_keyword ace_operator">-</span><span class="ace_identifier">aware</span><span class="ace_punctuation ace_operator">.</span><span class="ace_identifier">sandbox</span><span class="ace_punctuation ace_operator">.</span><span class="ace_identifier">csun</span><span class="ace_punctuation ace_operator">.</span><span class="ace_identifier">edu</span>
+</div><div class="ace_line"><span class="ace_gutter ace_gutter-cell" unselectable="on"></span>
+</div><div class="ace_line"><span class="ace_gutter ace_gutter-cell" unselectable="on"></span><span class="ace_paren ace_lparen">[</span><span class="ace_identifier">grid</span><span class="ace_paren ace_rparen">]</span>
+</div><div class="ace_line"><span class="ace_gutter ace_gutter-cell" unselectable="on"></span>
+</div><div class="ace_line"><span class="ace_gutter ace_gutter-cell" unselectable="on"></span>
+</div></div></div></div><div class="cell text-cell">We should run our ansible command with the following flag</div><div class="cell code-cell"><div class="ace-chrome"><div class="ace_static_highlight ace_show_gutter" style="counter-reset:ace_line 0"><div class="ace_line"><span class="ace_gutter ace_gutter-cell" unselectable="on"></span><span class="ace_keyword ace_operator">-</span><span class="ace_identifier">l</span> <span class="ace_identifier">sandbox</span>
 </div></div></div></div></div>
       <script>document.body.onkeyup = function(e) {
-if (e.keyCode === 39) window.location.href = 'META+LAB Immersive Summer 2018.html';
-if (e.keyCode === 37) window.location.href = 'Adding a User to a Group.html';
+if (e.keyCode === 39) window.location.href = 'Apache 2.2 vs 2.4 VHost.html';
+if (e.keyCode === 37) window.location.href = 'See open ports and who is listening.html';
 }</script>
     </body>
     </html>

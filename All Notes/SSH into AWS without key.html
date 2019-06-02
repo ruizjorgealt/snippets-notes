@@ -23,7 +23,7 @@
       <style> .text-cell {font-size: 15px;}.code-cell {font-size: 12px;}.markdown-cell {font-size: 15px;}.latex-cell {font-size: 15px;}</style>
     </head>
     <body>
-      <div id="nav"><div>Next: <a href='Processes.html'>Processes</a>, Previous: <a href='Adding a User to a Group.html'>Adding a User to a Group</a>, Up: <a href='index.html'>Index</a></div></div>
+      <div id="nav"><div>Next: <a href='Internet Gateway.html'>Internet Gateway</a>, Previous: <a href='WordPress page not found fix.html'>WordPress page not found fix</a>, Up: <a href='index.html'>Index</a></div></div>
       <div id="titlearea">
         <h2>SSH into AWS without key</h2>
       </div>
@@ -34,10 +34,13 @@
 </div><div class="ace_line"><span class="ace_gutter ace_gutter-cell" unselectable="on"></span><span class="ace_identifier">Retype</span> <span class="ace_storage ace_modifier">new</span> <span class="ace_identifier">UNIX</span> <span class="ace_identifier">password</span><span class="ace_punctuation ace_operator">:</span>
 </div><div class="ace_line"><span class="ace_gutter ace_gutter-cell" unselectable="on"></span><span class="ace_identifier">passwd</span><span class="ace_punctuation ace_operator">:</span> <span class="ace_identifier">password</span> <span class="ace_identifier">updated</span> <span class="ace_identifier">successfully</span>
 </div></div></div></div><div class="cell text-cell">At this point you should have the ability to ssh into your your ec2 instance</div><div class="cell code-cell"><div class="ace-chrome"><div class="ace_static_highlight ace_show_gutter" style="counter-reset:ace_line 0"><div class="ace_line"><span class="ace_gutter ace_gutter-cell" unselectable="on"></span><span class="ace_identifier">ssh</span> <span class="ace_identifier">ubuntu</span>@<span class="ace_identifier">ec2</span><span class="ace_constant ace_numeric">-3-16-63-249.</span><span class="ace_identifier">us</span><span class="ace_keyword ace_operator">-</span><span class="ace_identifier">east</span><span class="ace_constant ace_numeric">-2.</span><span class="ace_identifier">compute</span><span class="ace_punctuation ace_operator">.</span><span class="ace_identifier">amazonaws</span><span class="ace_punctuation ace_operator">.</span><span class="ace_identifier">com</span>
-</div></div></div></div><div class="cell text-cell"></div></div>
+</div></div></div></div><div class="cell text-cell">Alternatively, you <u>can create a new user</u> and <u>add it to the sudo group</u>.</div><div class="cell code-cell"><div class="ace-chrome"><div class="ace_static_highlight ace_show_gutter" style="counter-reset:ace_line 0"><div class="ace_line"><span class="ace_gutter ace_gutter-cell" unselectable="on"></span><span class="ace_identifier">sudo</span> <span class="ace_identifier">adduser</span> <span class="ace_keyword ace_operator">&lt;</span><span class="ace_identifier">username</span><span class="ace_keyword ace_operator">&gt;</span>
+</div></div></div></div><div class="cell code-cell"><div class="ace-chrome"><div class="ace_static_highlight ace_show_gutter" style="counter-reset:ace_line 0"><div class="ace_line"><span class="ace_gutter ace_gutter-cell" unselectable="on"></span><span class="ace_identifier">sudo</span> <span class="ace_identifier">usermod</span> <span class="ace_keyword ace_operator">-</span><span class="ace_identifier">aG</span> <span class="ace_identifier">sudo</span> <span class="ace_keyword ace_operator">&lt;</span><span class="ace_identifier">username</span><span class="ace_keyword ace_operator">&gt;</span>
+</div></div></div></div><div class="cell text-cell">Do not forget to restart SSHD</div><div class="cell code-cell"><div class="ace-chrome"><div class="ace_static_highlight ace_show_gutter" style="counter-reset:ace_line 0"><div class="ace_line"><span class="ace_gutter ace_gutter-cell" unselectable="on"></span><span class="ace_identifier">sudo</span> <span class="ace_identifier">systemctl</span> <span class="ace_identifier">restart</span> <span class="ace_identifier">sshd</span>
+</div></div></div></div></div>
       <script>document.body.onkeyup = function(e) {
-if (e.keyCode === 39) window.location.href = 'Processes.html';
-if (e.keyCode === 37) window.location.href = 'Adding a User to a Group.html';
+if (e.keyCode === 39) window.location.href = 'Internet Gateway.html';
+if (e.keyCode === 37) window.location.href = 'WordPress page not found fix.html';
 }</script>
     </body>
     </html>

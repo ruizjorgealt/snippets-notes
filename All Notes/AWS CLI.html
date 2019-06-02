@@ -23,16 +23,22 @@
       <style> .text-cell {font-size: 15px;}.code-cell {font-size: 12px;}.markdown-cell {font-size: 15px;}.latex-cell {font-size: 15px;}</style>
     </head>
     <body>
-      <div id="nav"><div>Next: <a href='META+LAB Immersive Summer 2018.html'>META+LAB Immersive Summer 2018 </a>, Previous: <a href='Adding a User to a Group.html'>Adding a User to a Group</a>, Up: <a href='index.html'>Index</a></div></div>
+      <div id="nav"><div>Next: <a href='Module 2  AWS Core Services.html'>Module 2: AWS Core Services</a>, Previous: <a href='What Are the Parts of Ansible.html'>What Are the Parts of Ansible?</a>, Up: <a href='index.html'>Index</a></div></div>
       <div id="titlearea">
-        <h2>Processes</h2>
+        <h2>AWS CLI</h2>
       </div>
-      <div id="contentarea"><div class="cell text-cell">To see processes running on your local machine, use the following commands:</div><div class="cell code-cell"><div class="ace-chrome"><div class="ace_static_highlight ace_show_gutter" style="counter-reset:ace_line 0"><div class="ace_line"><span class="ace_gutter ace_gutter-cell" unselectable="on"></span><span class="ace_identifier">ps</span> <span class="ace_identifier">aux</span>
-</div></div></div></div><div class="cell code-cell"><div class="ace-chrome"><div class="ace_static_highlight ace_show_gutter" style="counter-reset:ace_line 0"><div class="ace_line"><span class="ace_gutter ace_gutter-cell" unselectable="on"></span><span class="ace_identifier">top</span> <span class="ace_keyword ace_operator">-</span><span class="ace_identifier">o</span> <span class="ace_identifier">mem</span>
+      <div id="contentarea"><div class="cell text-cell">Create a profile for a user user on AWS. You need to attach a policy to the user for resource access. You will be provided an access key and an access key id.</div><div class="cell text-cell">First install AWS CLI, this could be achieved through brew on a mac or using pip.</div><div class="cell code-cell"><div class="ace-chrome"><div class="ace_static_highlight ace_show_gutter" style="counter-reset:ace_line 0"><div class="ace_line"><span class="ace_gutter ace_gutter-cell" unselectable="on"></span><span class="ace_identifier">brew</span> <span class="ace_identifier">install</span> <span class="ace_identifier">awscli</span>
+</div><div class="ace_line"><span class="ace_gutter ace_gutter-cell" unselectable="on"></span><span class="ace_identifier">pip</span> <span class="ace_identifier">install</span> <span class="ace_identifier">awscli</span>
+</div></div></div></div><div class="cell text-cell">Configure aws-cli with your profile (This is created on AWS)</div><div class="cell code-cell"><div class="ace-chrome"><div class="ace_static_highlight ace_show_gutter" style="counter-reset:ace_line 0"><div class="ace_line"><span class="ace_gutter ace_gutter-cell" unselectable="on"></span><span class="ace_identifier">$</span> <span class="ace_identifier">aws</span> <span class="ace_identifier">configure</span>
+</div><div class="ace_line"><span class="ace_gutter ace_gutter-cell" unselectable="on"></span><span class="ace_identifier">AWS</span> <span class="ace_identifier">Access</span> <span class="ace_identifier">Key</span> <span class="ace_identifier">ID</span><span class="ace_punctuation ace_operator">:</span> <span class="ace_identifier">foo</span>
+</div><div class="ace_line"><span class="ace_gutter ace_gutter-cell" unselectable="on"></span><span class="ace_identifier">AWS</span> <span class="ace_identifier">Secret</span> <span class="ace_identifier">Access</span> <span class="ace_identifier">Key</span><span class="ace_punctuation ace_operator">:</span> <span class="ace_identifier">bar</span>
+</div><div class="ace_line"><span class="ace_gutter ace_gutter-cell" unselectable="on"></span><span class="ace_identifier">Default</span> <span class="ace_identifier">region</span> <span class="ace_identifier">name</span> <span class="ace_paren ace_lparen">[</span><span class="ace_identifier">us</span><span class="ace_keyword ace_operator">-</span><span class="ace_identifier">west</span><span class="ace_constant ace_numeric">-2</span><span class="ace_paren ace_rparen">]</span><span class="ace_punctuation ace_operator">:</span> <span class="ace_identifier">us</span><span class="ace_keyword ace_operator">-</span><span class="ace_identifier">west</span><span class="ace_constant ace_numeric">-2</span>
+</div><div class="ace_line"><span class="ace_gutter ace_gutter-cell" unselectable="on"></span><span class="ace_identifier">Default</span> <span class="ace_identifier">output</span> <span class="ace_identifier">format</span> <span class="ace_paren ace_lparen">[</span><span class="ace_identifier">None</span><span class="ace_paren ace_rparen">]</span><span class="ace_punctuation ace_operator">:</span> <span class="ace_identifier">json</span>
+</div></div></div></div><div class="cell text-cell">You also need to install boto3 through pip</div><div class="cell code-cell"><div class="ace-chrome"><div class="ace_static_highlight ace_show_gutter" style="counter-reset:ace_line 0"><div class="ace_line"><span class="ace_gutter ace_gutter-cell" unselectable="on"></span><span class="ace_identifier">pip</span> <span class="ace_identifier">install</span> <span class="ace_identifier">boto3</span>
 </div></div></div></div></div>
       <script>document.body.onkeyup = function(e) {
-if (e.keyCode === 39) window.location.href = 'META+LAB Immersive Summer 2018.html';
-if (e.keyCode === 37) window.location.href = 'Adding a User to a Group.html';
+if (e.keyCode === 39) window.location.href = 'Module 2  AWS Core Services.html';
+if (e.keyCode === 37) window.location.href = 'What Are the Parts of Ansible.html';
 }</script>
     </body>
     </html>

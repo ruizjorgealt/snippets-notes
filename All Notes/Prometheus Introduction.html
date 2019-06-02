@@ -23,16 +23,30 @@
       <style> .text-cell {font-size: 15px;}.code-cell {font-size: 12px;}.markdown-cell {font-size: 15px;}.latex-cell {font-size: 15px;}</style>
     </head>
     <body>
-      <div id="nav"><div>Next: <a href='META+LAB Immersive Summer 2018.html'>META+LAB Immersive Summer 2018 </a>, Previous: <a href='Adding a User to a Group.html'>Adding a User to a Group</a>, Up: <a href='index.html'>Index</a></div></div>
+      <div id="nav"><div>Next: <a href='rsync.html'>rsync</a>, Previous: <a href='Prometheus Configuration.html'>Prometheus Configuration</a>, Up: <a href='index.html'>Index</a></div></div>
       <div id="titlearea">
-        <h2>Processes</h2>
+        <h2>Prometheus Introduction</h2>
       </div>
-      <div id="contentarea"><div class="cell text-cell">To see processes running on your local machine, use the following commands:</div><div class="cell code-cell"><div class="ace-chrome"><div class="ace_static_highlight ace_show_gutter" style="counter-reset:ace_line 0"><div class="ace_line"><span class="ace_gutter ace_gutter-cell" unselectable="on"></span><span class="ace_identifier">ps</span> <span class="ace_identifier">aux</span>
-</div></div></div></div><div class="cell code-cell"><div class="ace-chrome"><div class="ace_static_highlight ace_show_gutter" style="counter-reset:ace_line 0"><div class="ace_line"><span class="ace_gutter ace_gutter-cell" unselectable="on"></span><span class="ace_identifier">top</span> <span class="ace_keyword ace_operator">-</span><span class="ace_identifier">o</span> <span class="ace_identifier">mem</span>
-</div></div></div></div></div>
+      <div id="contentarea"><div class="cell text-cell">Prometheus is an open-source monitoring solution and time series database.<div><ul><li>Built by Soundcloud</li><li>Very active developer and user community</li><li>Now it’s a standalone open source project</li><li>Joined the Cloud Native Computing Foundation in 2016</li><li>Ideal for monitoring on premise as well as cloud workloads</li><li>Prometheus provides metrics and alerting</li><li>It is inspired by Google’s Borgmon, which uses time-series data as a datasource, to then send alerts based on this data</li></ul></div></div><div class="cell text-cell">In Prometheus we talk about <b><font color="#323232" style="background-color: rgb(254, 250, 0);">Dimensional Data</font></b>: Time series are identified by metric name and a set of key/value pairs.</div><div class="cell markdown-cell"><table>
+<thead>
+<tr>
+<th style="text-align:left">Metric name</th>
+<th style="text-align:left">Label</th>
+<th style="text-align:left">Sample</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">Temperature</td>
+<td style="text-align:left">location=outside</td>
+<td style="text-align:left">90</td>
+</tr>
+</tbody>
+</table>
+</div><div class="cell text-cell"><ul><li>Prometheus includes a Flexible Query Language<br></li><li>Visualizations can be shown using a built-in expression browser or with integrations like Grafana</li><li>It stores metrics in memory and local disk in an own custom, efficient format</li><li>It is written in Go</li><li>Many client libraries and integrations are available</li></ul></div><div class="cell text-cell"><h3>How does Prometheus Work?</h3><hr>Prometheus collects metrics from monitored targets by scrapping HTTP endpoints.<div>Hosts that we wish to monitor must expose an HTTP endpoint.</div><div><ul><li>This is fundamentally different than other monitoring and alerting systems</li><ul><li>Except this is how Google’s Borgmon works</li></ul><li>Rather than using custom scripts that check on particular services and systems, the monitoring data itself is used</li><li>Scraping endpoints is much more efficient than other mechanisms, like 3rd party agents</li><ul><li>A single prometheus server is able to ingest up to one million samples per second as several million time series</li></ul></ul></div></div><div class="cell text-cell"><img src="resources/CB3EC4DC87CDD30B14005B64BEC03F18.jpg" alt="how-prometheus-works.jpg" width="330" height="312"></div><div class="cell text-cell"><h3>Time Series</h3><hr>All data is stored as time series<div><ul><li>Every time series if identified by the "metric name” and a set of key-value pairs, called labels.</li></ul></div></div><div class="cell text-cell">Example:<div>metric: <code>go_memstat_alloc_bytes</code></div><div>instance=localhost:9090</div><div>job=prometheus</div></div><div class="cell text-cell"><img src="resources/56C4656E8624EAA321ADED8E5AE7FE76.png" alt="Screen Shot 2018-12-31 at 10.44.50 PM.png" width="438" height="338"></div><div class="cell text-cell">They export the same metrics but they have different labels; have the same meaning but they are from two different pieces of software.</div><div class="cell text-cell"><ul><li>The time series data also consists of the <b>actual data</b>, called <b>Samples</b>:</li><ul><li>It can be a <b>float64</b> value</li><li>Or a <b>millisecond-precision timestamp</b></li></ul></ul></div><div class="cell text-cell"><img src="resources/772F78995E5D7D5CC5EEFF3700070C40.png" alt="Screen Shot 2018-12-31 at 10.48.09 PM.png" width="519" height="116"></div><div class="cell text-cell">The notation of time series is often used using this notation:<div><code>&lt;metric name&gt;{&lt;label name&gt;=&lt;label value&gt;, …}</code></div><div><u><i>​Example:</i></u>&nbsp;<code>node_boot_time{instance=“localhost:9100”,job=“node_exporter”}</code></div></div></div>
       <script>document.body.onkeyup = function(e) {
-if (e.keyCode === 39) window.location.href = 'META+LAB Immersive Summer 2018.html';
-if (e.keyCode === 37) window.location.href = 'Adding a User to a Group.html';
+if (e.keyCode === 39) window.location.href = 'rsync.html';
+if (e.keyCode === 37) window.location.href = 'Prometheus Configuration.html';
 }</script>
     </body>
     </html>

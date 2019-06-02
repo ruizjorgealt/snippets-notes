@@ -23,16 +23,19 @@
       <style> .text-cell {font-size: 15px;}.code-cell {font-size: 12px;}.markdown-cell {font-size: 15px;}.latex-cell {font-size: 15px;}</style>
     </head>
     <body>
-      <div id="nav"><div>Next: <a href='META+LAB Immersive Summer 2018.html'>META+LAB Immersive Summer 2018 </a>, Previous: <a href='Adding a User to a Group.html'>Adding a User to a Group</a>, Up: <a href='index.html'>Index</a></div></div>
+      <div id="nav"><div>Next: <a href='Creating an AWS EC2 Instance.html'>Creating an AWS EC2 Instance</a>, Previous: <a href='Creating an AWS Virtual Private Network (VPC).html'>Creating an AWS Virtual Private Network (VPC)</a>, Up: <a href='index.html'>Index</a></div></div>
       <div id="titlearea">
-        <h2>Processes</h2>
+        <h2>Terraform init Command</h2>
       </div>
-      <div id="contentarea"><div class="cell text-cell">To see processes running on your local machine, use the following commands:</div><div class="cell code-cell"><div class="ace-chrome"><div class="ace_static_highlight ace_show_gutter" style="counter-reset:ace_line 0"><div class="ace_line"><span class="ace_gutter ace_gutter-cell" unselectable="on"></span><span class="ace_identifier">ps</span> <span class="ace_identifier">aux</span>
-</div></div></div></div><div class="cell code-cell"><div class="ace-chrome"><div class="ace_static_highlight ace_show_gutter" style="counter-reset:ace_line 0"><div class="ace_line"><span class="ace_gutter ace_gutter-cell" unselectable="on"></span><span class="ace_identifier">top</span> <span class="ace_keyword ace_operator">-</span><span class="ace_identifier">o</span> <span class="ace_identifier">mem</span>
-</div></div></div></div></div>
+      <div id="contentarea"><div class="cell text-cell">Initializes the environment to use terraform against your infrastructure.&nbsp;<div>Used to initialize a working directory containing Terraform configuration files</div></div><div class="cell code-cell"><div class="ace-chrome"><div class="ace_static_highlight ace_show_gutter" style="counter-reset:ace_line 0"><div class="ace_line"><span class="ace_gutter ace_gutter-cell" unselectable="on"></span><span class="ace_identifier">terraform</span> <span class="ace_identifier">init</span>
+</div></div></div></div><div class="cell text-cell">We can also provide a backend configuration file for&nbsp;situations where the backend settings are dynamic or sensitive and so cannot be statically specified in the configuration file.</div><div class="cell code-cell"><div class="ace-chrome"><div class="ace_static_highlight ace_show_gutter" style="counter-reset:ace_line 0"><div class="ace_line"><span class="ace_gutter ace_gutter-cell" unselectable="on"></span><span class="ace_identifier">terraform</span> <span class="ace_identifier">init</span> <span class="ace_keyword ace_operator">-</span><span class="ace_identifier">backend</span><span class="ace_keyword ace_operator">-</span><span class="ace_identifier">config</span><span class="ace_keyword ace_operator">=</span><span class="ace_string ace_start">"</span><span class="ace_string">backend-config-file-path</span><span class="ace_string ace_end">"</span>
+</div></div></div></div><div class="cell text-cell">A backend configuration file has the contents of the backend block as top-level attributes, without the need to wrap it in another terraform or backend block:</div><div class="cell code-cell"><div class="ace-chrome"><div class="ace_static_highlight ace_show_gutter" style="counter-reset:ace_line 0"><div class="ace_line"><span class="ace_gutter ace_gutter-cell" unselectable="on"></span><span class="ace_identifier">address</span> <span class="ace_keyword ace_operator">=</span> <span class="ace_string ace_start">"</span><span class="ace_string">demo.consul.io</span><span class="ace_string ace_end">"</span>
+</div><div class="ace_line"><span class="ace_gutter ace_gutter-cell" unselectable="on"></span><span class="ace_identifier">path</span>    <span class="ace_keyword ace_operator">=</span> <span class="ace_string ace_start">"</span><span class="ace_string">example_app/terraform_state</span><span class="ace_string ace_end">"</span>
+</div><div class="ace_line"><span class="ace_gutter ace_gutter-cell" unselectable="on"></span><span class="ace_identifier">scheme</span>  <span class="ace_keyword ace_operator">=</span> <span class="ace_string ace_start">"</span><span class="ace_string">https</span><span class="ace_string ace_end">"</span>
+</div></div></div></div><div class="cell text-cell"></div></div>
       <script>document.body.onkeyup = function(e) {
-if (e.keyCode === 39) window.location.href = 'META+LAB Immersive Summer 2018.html';
-if (e.keyCode === 37) window.location.href = 'Adding a User to a Group.html';
+if (e.keyCode === 39) window.location.href = 'Creating an AWS EC2 Instance.html';
+if (e.keyCode === 37) window.location.href = 'Creating an AWS Virtual Private Network (VPC).html';
 }</script>
     </body>
     </html>

@@ -23,16 +23,14 @@
       <style> .text-cell {font-size: 15px;}.code-cell {font-size: 12px;}.markdown-cell {font-size: 15px;}.latex-cell {font-size: 15px;}</style>
     </head>
     <body>
-      <div id="nav"><div>Next: <a href='META+LAB Immersive Summer 2018.html'>META+LAB Immersive Summer 2018 </a>, Previous: <a href='Adding a User to a Group.html'>Adding a User to a Group</a>, Up: <a href='index.html'>Index</a></div></div>
+      <div id="nav"><div>Next: <a href='Deleting ppa entries.html'>Deleting ppa entries</a>, Previous: <a href='LDAP Schemas.html'>LDAP Schemas</a>, Up: <a href='index.html'>Index</a></div></div>
       <div id="titlearea">
-        <h2>Processes</h2>
+        <h2>Subnetting</h2>
       </div>
-      <div id="contentarea"><div class="cell text-cell">To see processes running on your local machine, use the following commands:</div><div class="cell code-cell"><div class="ace-chrome"><div class="ace_static_highlight ace_show_gutter" style="counter-reset:ace_line 0"><div class="ace_line"><span class="ace_gutter ace_gutter-cell" unselectable="on"></span><span class="ace_identifier">ps</span> <span class="ace_identifier">aux</span>
-</div></div></div></div><div class="cell code-cell"><div class="ace-chrome"><div class="ace_static_highlight ace_show_gutter" style="counter-reset:ace_line 0"><div class="ace_line"><span class="ace_gutter ace_gutter-cell" unselectable="on"></span><span class="ace_identifier">top</span> <span class="ace_keyword ace_operator">-</span><span class="ace_identifier">o</span> <span class="ace_identifier">mem</span>
-</div></div></div></div></div>
+      <div id="contentarea"><div class="cell text-cell">A subnet is a range of IPs within a VPC (Virtual Private Cloud)<div><b>Private subnet</b> – Won’t access the internet</div><div><b>Public subnet</b> – Will access the internet</div></div><div class="cell text-cell"><b>How to calculate 1024 private IPs?</b><div>2¹⁰ = 1024</div><div>Therefore, we substract 10 off of the 32 bits of an IPv4 IP</div><div>32-10=22</div><div>Therefore we have a subnet of <code>192.31.0.0/22</code></div></div><div class="cell text-cell"><b>Calculating the mask</b><div>11111111.11111111.11111100.00000000</div><div>225.225.252.0</div></div><div class="cell text-cell"><div>Remember that our limit of IPs is 1024, therefore we must NOT go over that limit!</div></div><div class="cell text-cell">Our next subnet would start at 172.31.<b><font color="#323232" style="background-color: rgb(254, 250, 0);">4</font></b>.0/xx</div></div>
       <script>document.body.onkeyup = function(e) {
-if (e.keyCode === 39) window.location.href = 'META+LAB Immersive Summer 2018.html';
-if (e.keyCode === 37) window.location.href = 'Adding a User to a Group.html';
+if (e.keyCode === 39) window.location.href = 'Deleting ppa entries.html';
+if (e.keyCode === 37) window.location.href = 'LDAP Schemas.html';
 }</script>
     </body>
     </html>

@@ -23,17 +23,18 @@
       <style> .text-cell {font-size: 15px;}.code-cell {font-size: 12px;}.markdown-cell {font-size: 15px;}.latex-cell {font-size: 15px;}</style>
     </head>
     <body>
-      <div id="nav"><div>Next: <a href='Adding users.html'>Adding users</a>, Previous: <a href='Hosting multiple sites httpd.html'>Hosting multiple sites httpd</a>, Up: <a href='index.html'>Index</a></div></div>
+      <div id="nav"><div>Next: <a href='Change wordpress url.html'>Change wordpress url</a>, Previous: <a href='Certbot.html'>Certbot</a>, Up: <a href='index.html'>Index</a></div></div>
       <div id="titlearea">
         <h2>Create database and grant access to user</h2>
       </div>
       <div id="contentarea"><div class="cell text-cell">To create a database:</div><div class="cell code-cell"><div class="ace-chrome"><div class="ace_static_highlight ace_show_gutter" style="counter-reset:ace_line 0"><div class="ace_line"><span class="ace_gutter ace_gutter-cell" unselectable="on"></span><span class="ace_identifier">CREATE</span> <span class="ace_identifier">DATABASE</span> <span class="ace_keyword ace_operator">&lt;</span><span class="ace_identifier">my_database</span><span class="ace_keyword ace_operator">&gt;</span>
 </div></div></div></div><div class="cell text-cell">To create a user:</div><div class="cell code-cell"><div class="ace-chrome"><div class="ace_static_highlight ace_show_gutter" style="counter-reset:ace_line 0"><div class="ace_line"><span class="ace_gutter ace_gutter-cell" unselectable="on"></span><span class="ace_identifier">CREATE</span> <span class="ace_identifier">USER</span> '<span class="ace_identifier">username</span><span class="ace_string">'@'</span><span class="ace_identifier">localhost</span>' <span class="ace_identifier">IDENTIFIED</span> <span class="ace_identifier">BY</span> '<span class="ace_identifier">password</span>'<span class="ace_punctuation ace_operator">;</span>
 </div></div></div></div><div class="cell text-cell">To grant access to user:</div><div class="cell code-cell"><div class="ace-chrome"><div class="ace_static_highlight ace_show_gutter" style="counter-reset:ace_line 0"><div class="ace_line"><span class="ace_gutter ace_gutter-cell" unselectable="on"></span><span class="ace_identifier">GRANT</span> <span class="ace_identifier">ALL</span> <span class="ace_identifier">PRIVILEGES</span> <span class="ace_identifier">ON</span> <span class="ace_identifier">kanboard</span><span class="ace_punctuation ace_operator">.</span><span class="ace_keyword ace_operator">*</span> <span class="ace_identifier">TO</span> '<span class="ace_identifier">username</span><span class="ace_string">'@'</span><span class="ace_identifier">localhost</span>' <span class="ace_identifier">IDENTIFIED</span> <span class="ace_identifier">BY</span> '<span class="ace_identifier">password</span>'<span class="ace_punctuation ace_operator">;</span>
+</div></div></div></div><div class="cell code-cell"><div class="ace-chrome"><div class="ace_static_highlight ace_show_gutter" style="counter-reset:ace_line 0"><div class="ace_line"><span class="ace_gutter ace_gutter-cell" unselectable="on"></span><span class="ace_identifier">GRANT</span> <span class="ace_identifier">ALL</span> <span class="ace_identifier">PRIVILEGES</span> <span class="ace_identifier">ON</span> <span class="ace_identifier">syspass</span><span class="ace_punctuation ace_operator">.</span><span class="ace_keyword ace_operator">*</span> <span class="ace_identifier">TO</span> '<span class="ace_identifier">syspassuser</span><span class="ace_string">'@'</span><span class="ace_identifier">localhost</span>' <span class="ace_identifier">IDENTIFIED</span> <span class="ace_identifier">BY</span> '<span class="ace_identifier">pa$sp</span>@<span class="ace_identifier">ss</span><span class="ace_keyword ace_operator">!</span>'<span class="ace_punctuation ace_operator">;</span>
 </div></div></div></div></div>
       <script>document.body.onkeyup = function(e) {
-if (e.keyCode === 39) window.location.href = 'Adding users.html';
-if (e.keyCode === 37) window.location.href = 'Hosting multiple sites httpd.html';
+if (e.keyCode === 39) window.location.href = 'Change wordpress url.html';
+if (e.keyCode === 37) window.location.href = 'Certbot.html';
 }</script>
     </body>
     </html>

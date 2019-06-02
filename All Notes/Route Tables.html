@@ -23,16 +23,38 @@
       <style> .text-cell {font-size: 15px;}.code-cell {font-size: 12px;}.markdown-cell {font-size: 15px;}.latex-cell {font-size: 15px;}</style>
     </head>
     <body>
-      <div id="nav"><div>Next: <a href='META+LAB Immersive Summer 2018.html'>META+LAB Immersive Summer 2018 </a>, Previous: <a href='Adding a User to a Group.html'>Adding a User to a Group</a>, Up: <a href='index.html'>Index</a></div></div>
+      <div id="nav"><div>Next: <a href='Terraform Variables.html'>Terraform Variables</a>, Previous: <a href='Internet Gateway.html'>Internet Gateway</a>, Up: <a href='index.html'>Index</a></div></div>
       <div id="titlearea">
-        <h2>Processes</h2>
+        <h2>Route Tables</h2>
       </div>
-      <div id="contentarea"><div class="cell text-cell">To see processes running on your local machine, use the following commands:</div><div class="cell code-cell"><div class="ace-chrome"><div class="ace_static_highlight ace_show_gutter" style="counter-reset:ace_line 0"><div class="ace_line"><span class="ace_gutter ace_gutter-cell" unselectable="on"></span><span class="ace_identifier">ps</span> <span class="ace_identifier">aux</span>
-</div></div></div></div><div class="cell code-cell"><div class="ace-chrome"><div class="ace_static_highlight ace_show_gutter" style="counter-reset:ace_line 0"><div class="ace_line"><span class="ace_gutter ace_gutter-cell" unselectable="on"></span><span class="ace_identifier">top</span> <span class="ace_keyword ace_operator">-</span><span class="ace_identifier">o</span> <span class="ace_identifier">mem</span>
-</div></div></div></div></div>
+      <div id="contentarea"><div class="cell text-cell">The route table is the place to define where packets originating within a given subnet should go.<div><br></div><div>The <font color="#323232" style="background-color: rgb(254, 250, 0);">"Destination"</font> is the pattern for where the packet is trying to end up (think final destination), and the <font color="#323232" style="background-color: rgb(254, 250, 0);">"Target"</font> is where the packet should go next, to get it one step closer to the intended destination.<br></div><div><br></div><div>For example, packets with a destination within 10.0.0.0/16 should be routed directly inside the VPC; packets with a destination within 172.31.0.0/16 should be routed to a peered VPC; and any packets destined anywhere else--which will all match the 0.0.0.0/0 CIDR block--should be routed to the NAT instance as the next target, so that they can eventually wind up at their destination on the internet.<br></div><div><br></div><div>Another example:</div><div>For those traffic heading to this <font color="#323232" style="background-color: rgb(254, 250, 0);">destination</font> (i.e 0.0.0.0/0, CIDR block), please direct it to this <font color="#323232" style="background-color: rgb(254, 250, 0);">target</font> (e.g. Internet Gateway/NAT Instance). Now remember that local is associated with VPC’s main subnet. Subnets can only be attached to one single VPC.<br></div><div><br></div><div>Another example:</div><div><div>Routing tables are like street signs for each subnet.</div><div>You want to go to another city (internet via nat)? Go via the nat to IGW. You want to go to another VPC? Go to this peering connection. You want to go to s3? Go to the s3 gw.</div></div><div><br></div><div>Another example:</div><div>One of the things to watch out for is the label "destination" vs "target". Destination does not mean "where to send this traffic”, Target means that. What destination means is "for traffic that has as a destination IP address" (e.g. the remote host that the sender is communicating with) then this table entry matches and this target (probably) applies.&nbsp;</div><div><br></div><div><br></div><div>It is also important to remember that we have to attach/point internet gateways to/towards our VPCs too.</div><div><br></div><div>You don't make route tables to control inbound traffic routing but you can block/filter it with NACLs and Security Groups.<br></div></div><div class="cell markdown-cell"><table>
+<thead>
+<tr>
+<th style="text-align:left">Destination</th>
+<th style="text-align:left">Target</th>
+<th style="text-align:left">Status</th>
+<th style="text-align:left">Propagated</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">172.31.0.0/16</td>
+<td style="text-align:left">local</td>
+<td style="text-align:left">active</td>
+<td style="text-align:left">No</td>
+</tr>
+<tr>
+<td style="text-align:left">0.0.0.0/0</td>
+<td style="text-align:left">igw-id</td>
+<td style="text-align:left">active</td>
+<td style="text-align:left">No</td>
+</tr>
+</tbody>
+</table>
+</div></div>
       <script>document.body.onkeyup = function(e) {
-if (e.keyCode === 39) window.location.href = 'META+LAB Immersive Summer 2018.html';
-if (e.keyCode === 37) window.location.href = 'Adding a User to a Group.html';
+if (e.keyCode === 39) window.location.href = 'Terraform Variables.html';
+if (e.keyCode === 37) window.location.href = 'Internet Gateway.html';
 }</script>
     </body>
     </html>
